@@ -5,11 +5,12 @@ WikiChain is a simple Python script for generating nonsensical (and usually hila
 ### Installation:
 ```sh
 $ pip3 install wikipedia markovify gevent
+$ chmod +x wikichain
 ```
 
 ### Usage:
 ```sh
-$ python wikichain.py <topic> [--depth 2] [--paragraphs 4] [--sentences 10]
+$ ./wikichain <topic> [--depth 2] [--paragraphs 4] [--sentences 10]
 ```
 
 ### How does it work?
