@@ -1,8 +1,9 @@
+import gevent.monkey
+gevent.monkey.patch_all()
+
 import wikipedia as wk
 import markovify
-import gevent.monkey
 
-gevent.monkey.patch_all()
 wk.set_rate_limiting(True)
 
 topic = 'wikipedia'
