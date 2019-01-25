@@ -8,13 +8,6 @@ import markovify
 
 wk.set_rate_limiting(True)
 
-topic = 'wikipedia'
-depth = 2
-input_path = './wiki_input.txt'
-output_path = './wiki_output.txt'
-paragraphs = 4
-sentences = 10
-
 
 def load_data(topic):
     def load_page(title, queue, visited):
@@ -65,15 +58,19 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser(description='Create nonsensical essays about a particular topic.')
     parser.add_argument('topic', metavar='T', help='essay topic')
-    parser.add_argument('--depth', type=int, help='article search depth')
-    parser.add_argument('--paragraphs', type=int, help='paragraphs per essay')
-    parser.add_argument('--sentences', type=int, help='sentences per paragraph')
+    parser.add_argument('-d', '--depth', type=int, default=2, help='article search depth')
+    parser.add_argument('-p', '--paragraphs', type=int, default=4, help='paragraphs per essay')
+    parser.add_argument('-s', '--sentences', type=int, default=10, help='sentences per paragraph')
+    parser.add_argument('-i', '--input', default='./wiki_input.txt', help='input file path')
+    parser.add_argument('-o', '--output', default='./wiki_output.txt', help='output file path')
     args = parser.parse_args()
     
     topic = args.topic
-    depth = args.depth or depth
-    paragraphs = args.paragraphs or paragraphs
-    sentences = args.sentences or sentences
+    depth = args.depth
+    paragraphs = args.paragraphs
+    sentences = args.sentences
+    input_path = args.input
+    output_path = args.output
     
     load_data(topic)
     create_chain()

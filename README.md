@@ -10,7 +10,17 @@ $ chmod +x wikichain
 
 ### Usage:
 ```sh
-$ ./wikichain <topic> [--depth 2] [--paragraphs 4] [--sentences 10]
+$ ./wikichain <topic>
+    [--depth 2]
+    [--paragraphs 4]
+    [--sentences 10]
+    [--input ./wiki_input.txt]
+    [--output ./wiki_output.txt]
+```
+
+#### Shorthand:
+```sh
+$ ./wikichain <topic> [-d 2] [-p 4] [-s 10] [-i ./wiki_input.txt] [-o ./wiki_output.txt]
 ```
 
 ### How does it work?
